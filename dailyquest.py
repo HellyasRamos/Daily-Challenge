@@ -3,14 +3,19 @@ import datetime
 import pytz
 
 fuso_horario = pytz.timezone('America/New_York')
+n_flexoes = 10
 
 def desafio_diario():
+    global n_flexoes
     print('Desafio Diário!!')
-    print('Faça 10 flexões e digite "ok" para concluir o desafio.')
+    print(f"Faça {n_flexoes} e digite 'ok' para concluir o desafio.")
     while True:
-        flexoes = input('10 flexões: ')
-        if flexoes.lower() == "ok":
+        check_flexoes = input('10 flexões: ')
+        if check_flexoes.lower() == "ok":
             print('Parabéns!! Você Concluiu o Desafio Diário em:', datetime.datetime.now(fuso_horario).strftime("%H:%M:%S"))
+            n_flexoes += 1
+            print(f'Proximo desafio: {n_flexoes} flexões.')
+
             break
         else:
             print('Por favor, faça as 10 flexões e digite "ok".')
